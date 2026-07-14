@@ -8,16 +8,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnEs = document.getElementById('btn-es');
 
     function setLanguage(lang) {
+        htmlElement.setAttribute('lang', lang);
         if (lang === 'es') {
-            htmlElement.setAttribute('lang', 'es');
             btnEs.classList.add('active');
             btnEn.classList.remove('active');
         } else {
-            htmlElement.setAttribute('lang', 'en');
             btnEn.classList.add('active');
             btnEs.classList.remove('active');
         }
         localStorage.setItem('ginger_lang', lang);
+
+        // Apply translations from data.js
+        const dict = translations[lang];
+        if (dict) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let text = dict;
+                for (let k of keys) {
+                    if (text) text = text[k];
+                }
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                const keys = key.split('.');
+                let text = dict;
+                for (let k of keys) {
+                    if (text) text = text[k];
+                }
+                if (text) {
+                    el.setAttribute('placeholder', text);
+                }
+            });
+        }
     }
 
     // Check saved language

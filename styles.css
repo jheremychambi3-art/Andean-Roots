@@ -43,13 +43,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Language Selection Utility */
-html[lang="en"] .lang-es {
-    display: none !important;
-}
-html[lang="es"] .lang-en {
-    display: none !important;
-}
+
 
 /* Typography & Links */
 h1, h2, h3, h4, h5, h6 {
