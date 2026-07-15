@@ -520,12 +520,12 @@ a {
 }
 
 /* Hover Interaction trigger */
-.product-card:hover .product-image-default {
+.product-display:hover .product-image-default {
     opacity: 0;
     transform: scale(0.98);
 }
 
-.product-card:hover .product-image-hover {
+.product-display:hover .product-image-hover {
     opacity: 1;
     z-index: 3;
     transform: scale(1);
