@@ -23,10 +23,26 @@
             
             <nav class="nav-menu">
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="#about" class="active" data-i18n="nav.about">About Us</a></li>
-                    <li><a href="#products" data-i18n="nav.products">Products</a></li>
+                    <li class="dropdown">
+                        <a href="#about" class="active" data-i18n="nav.about">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#about" data-i18n="nav.about_us">Who We Are</a></li>
+                            <li><a href="#operations" data-i18n="nav.about_how">How We Grow</a></li>
+                            <li><a href="#certifications" data-i18n="nav.about_cert">Certifications</a></li>
+                            <li><a href="#team" data-i18n="nav.about_team">Transparency</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#products" data-i18n="nav.products">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#products" data-i18n="nav.prod_fresh">Fresh Ginger</a></li>
+                            <li><a href="#products" data-i18n="nav.prod_dried">Dried Ginger</a></li>
+                            <li><a href="#products" data-i18n="nav.prod_infusion">Ginger Infusions</a></li>
+                            <li><a href="#products" data-i18n="nav.prod_supplement">Ginger Supplements</a></li>
+                            <li><a href="#products" data-i18n="nav.prod_snack">Crystallized Snack</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#journey" data-i18n="nav.journey">The Journey</a></li>
-                    <li><a href="#certifications" data-i18n="nav.compliance">Compliance</a></li>
                 </ul>
             </nav>
             
@@ -116,6 +132,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Timeline Story Section -->
+            <div class="timeline-story-section reveal" style="margin-top: 8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="timeline-content">
+                    <span class="timeline-year" data-i18n="timeline.year" style="font-family: var(--font-sans); font-size: 1.25rem; font-weight: 500; color: #7CA982; margin-bottom: 1rem; display: block;">2026</span>
+                    <h2 class="timeline-heading serif" data-i18n="timeline.title" style="font-family: var(--font-serif); font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.1;">From Field to Global Table</h2>
+                    <p class="timeline-text" data-i18n="timeline.text" style="font-size: 1.1rem;">Founded in January 2026 by four visionary International Business Administration graduates from UTP, our enterprise was born to revolutionize ginger exports. Facing an immediate global demand for clean-label wellness ingredients, we partnered with smallholder farmers in the Peruvian high-Andes, implementing strict organic practices to secure our first sustainable trade route to the United States.</p>
+                </div>
+                <div class="timeline-image-frame" style="border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; overflow: hidden; height: 500px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+                    <img src="images/timeline_harvest.png" alt="Farmers harvesting ginger" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -128,41 +156,167 @@
                 <p data-i18n="catalog.desc">Carefully cultivated and processed to retain their intense flavor, crisp texture, and therapeutic properties. Hover over the images to see them in use.</p>
             </div>
 
-            <div class="catalog-grid">
-                <div class="product-card reveal">
-                    <div class="product-image-wrapper">
-                        <img src="images/product_fresh_default.png" alt="Fresh Peruvian Ginger Rhizomes" class="product-image-default">
-                        <img src="images/product_fresh_hover.png" alt="Fresh Ginger Cooking Lifestyle" class="product-image-hover">
-                    </div>
-                    <div class="product-meta">
-                        <h3 class="product-title" data-i18n="catalog.prod1_title">Fresh Ginger Rhizomes</h3>
-                        <span class="product-origin">Junín, Peru</span>
-                    </div>
-                    <p class="product-desc" data-i18n="catalog.prod1_desc">Robust, spicy, and highly aromatic. Sourced from high-altitude rain forests, our fresh ginger is characterized by its intense flavor and lower moisture content, extending shelf-life.</p>
-                    <div class="product-specs">
-                        <ul class="spec-list">
-                            <li class="spec-item" data-i18n="catalog.prod1_spec1">Sizes: <strong>Small (30-64g) | Medium (65-80g) | Premium (>81g)</strong></li>
-                            <li class="spec-item" data-i18n="catalog.prod1_spec2">Packaging: <strong>10kg / 15kg Corrugated Ventilated Box</strong></li>
-                        </ul>
-                    </div>
+            <div class="catalog-grid catalog-interactive reveal">
+                <!-- Left: List -->
+                <div class="catalog-list">
+                    <button class="catalog-tab active" data-target="prod1" data-i18n="catalog.prod1_title">Fresh Ginger Rhizomes</button>
+                    <button class="catalog-tab" data-target="prod2" data-i18n="catalog.prod2_title">Dehydrated Ginger Slices</button>
+                    <button class="catalog-tab" data-target="prod3" data-i18n="catalog.prod3_title">Organic Ginger Infusions</button>
+                    <button class="catalog-tab" data-target="prod4" data-i18n="catalog.prod4_title">Ginger Supplements</button>
+                    <button class="catalog-tab" data-target="prod5" data-i18n="catalog.prod5_title">Crystallized Ginger Snack</button>
                 </div>
 
-                <div class="product-card reveal" style="transition-delay: 0.15s;">
-                    <div class="product-image-wrapper">
-                        <img src="images/product_dried_default.png" alt="Dehydrated Golden Ginger Slices" class="product-image-default">
-                        <img src="images/product_dried_hover.png" alt="Steaming Ginger Tea Wellness" class="product-image-hover">
+                <!-- Right: Details -->
+                <div class="catalog-details">
+                    <!-- Prod 1 -->
+                    <div class="product-display active" id="prod1">
+                        <div class="product-image-wrapper">
+                            <img src="images/product_fresh_default.png" alt="Fresh Ginger" class="product-image-default">
+                            <img src="images/product_fresh_hover.png" alt="Fresh Ginger Use" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" data-i18n="catalog.prod1_title">Fresh Ginger Rhizomes</h3>
+                            <p class="product-desc" data-i18n="catalog.prod1_desc">Whole, thoroughly cleaned, uncrushed rhizomes.</p>
+                            <div class="product-specs">
+                                <ul class="spec-list">
+                                    <li class="spec-item" data-i18n="catalog.prod1_spec1">Sizing: <strong>Small (30-64g) | Medium (65-80g) | Premium (>81g)</strong></li>
+                                    <li class="spec-item" data-i18n="catalog.prod1_spec2">Packaging: <strong>10-15 kg ventilated corrugated cardboard boxes</strong></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-meta">
-                        <h3 class="product-title" data-i18n="catalog.prod2_title">Dehydrated Ginger Slices</h3>
-                        <span class="product-origin">Junín, Peru</span>
+                    <!-- Prod 2 -->
+                    <div class="product-display" id="prod2">
+                        <div class="product-image-wrapper">
+                            <img src="images/product_dried_default.png" alt="Dried Ginger" class="product-image-default">
+                            <img src="images/product_dried_hover.png" alt="Dried Ginger Use" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" data-i18n="catalog.prod2_title">Dehydrated Ginger Slices</h3>
+                            <p class="product-desc" data-i18n="catalog.prod2_desc">Dehydrated premium ginger slices.</p>
+                            <div class="product-specs">
+                                <ul class="spec-list">
+                                    <li class="spec-item" data-i18n="catalog.prod2_spec1">Moisture: <strong>&lt; 12% Max</strong></li>
+                                    <li class="spec-item" data-i18n="catalog.prod2_spec2">Packaging: <strong>Polypropylene hermetic bags</strong></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <p class="product-desc" data-i18n="catalog.prod2_desc">Premium dried ginger slices processed under strict temperature controls. High concentration of gingerols, making it ideal for tea blends, functional food processing, and botanical extracts.</p>
-                    <div class="product-specs">
-                        <ul class="spec-list">
-                            <li class="spec-item" data-i18n="catalog.prod2_spec1">Moisture Content: <strong>&lt; 12% Max</strong></li>
-                            <li class="spec-item" data-i18n="catalog.prod2_spec2">Packaging: <strong>20kg Kraft Bags with PE Liner / Customized</strong></li>
-                        </ul>
+                    <!-- Prod 3 -->
+                    <div class="product-display" id="prod3">
+                        <div class="product-image-wrapper">
+                            <img src="images/product_infusion.png" alt="Ginger Infusions" class="product-image-default">
+                            <img src="images/product_infusion.png" alt="Ginger Infusions Use" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" data-i18n="catalog.prod3_title">Organic Ginger Infusions</h3>
+                            <p class="product-desc" data-i18n="catalog.prod3_desc">Premium cut organic ginger tea bags.</p>
+                            <div class="product-specs">
+                                <ul class="spec-list">
+                                    <li class="spec-item" data-i18n="catalog.prod3_spec1">Ingredients: <strong>100% Organic Peruvian Ginger</strong></li>
+                                    <li class="spec-item" data-i18n="catalog.prod3_spec2">Packaging: <strong>Premium filter bags</strong></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Prod 4 -->
+                    <div class="product-display" id="prod4">
+                        <div class="product-image-wrapper">
+                            <img src="images/product_supplement.png" alt="Ginger Supplements" class="product-image-default">
+                            <img src="images/product_supplement.png" alt="Ginger Supplements Use" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" data-i18n="catalog.prod4_title">Ginger Supplements</h3>
+                            <p class="product-desc" data-i18n="catalog.prod4_desc">Standardized ginger extract capsules.</p>
+                            <div class="product-specs">
+                                <ul class="spec-list">
+                                    <li class="spec-item" data-i18n="catalog.prod4_spec1">Active Ingredients: <strong>High Gingerol</strong></li>
+                                    <li class="spec-item" data-i18n="catalog.prod4_spec2">Packaging: <strong>Amber glass bottles</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Prod 5 -->
+                    <div class="product-display" id="prod5">
+                        <div class="product-image-wrapper">
+                            <img src="images/product_snack.png" alt="Crystallized Snack" class="product-image-default">
+                            <img src="images/product_snack.png" alt="Crystallized Snack Use" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title" data-i18n="catalog.prod5_title">Crystallized Ginger Snack</h3>
+                            <p class="product-desc" data-i18n="catalog.prod5_desc">Sweet and spicy tender ginger chunks.</p>
+                            <div class="product-specs">
+                                <ul class="spec-list">
+                                    <li class="spec-item" data-i18n="catalog.prod5_spec1">Ingredients: <strong>Ginger, Cane Sugar</strong></li>
+                                    <li class="spec-item" data-i18n="catalog.prod5_spec2">Packaging: <strong>Resealable pouches</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operations & Capacity Section -->
+    <section class="section operations-section" id="operations">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline" data-i18n="operations.tag">Operational Capacity</span>
+                <h2 data-i18n="operations.title">Infrastructure and Logistics</h2>
+                <p data-i18n="operations.desc">Built to supply US buyers with uninterrupted volume, food safety, and traceable cold-chain precision.</p>
+            </div>
+
+            <!-- 3 Column Images and Text -->
+            <div class="operations-grid reveal">
+                <div class="ops-card">
+                    <img src="images/field_landscape.png" alt="Andean Fields">
+                    <h3 data-i18n="operations.field_title">How We Grow</h3>
+                    <p data-i18n="operations.field_text">Grown at elevations between 1,200m and 1,800m.</p>
+                </div>
+                <div class="ops-card">
+                    <img src="images/packing_facility.png" alt="Packing Facility">
+                    <h3 data-i18n="operations.pack_title">Packing Facilities</h3>
+                    <p data-i18n="operations.pack_text">State-of-the-art, sanitized washing lines.</p>
+                </div>
+                <div class="ops-card">
+                    <img src="images/cold_storage.png" alt="Cold Storage">
+                    <h3 data-i18n="operations.cold_title">Cold Storage & Logistics</h3>
+                    <p data-i18n="operations.cold_text">Strict storage protocols in Reefer containers.</p>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="metrics-dashboard reveal" style="margin-top: 4rem;">
+                <div class="metric-card">
+                    <i data-lucide="leaf" class="metric-icon"></i>
+                    <h4 data-i18n="operations.met1">250,000 kg</h4>
+                    <span data-i18n="operations.met1_lbl">Fresh Capacity</span>
+                </div>
+                <div class="metric-card">
+                    <i data-lucide="sun" class="metric-icon"></i>
+                    <h4 data-i18n="operations.met2">80,000 kg</h4>
+                    <span data-i18n="operations.met2_lbl">Drying Capacity</span>
+                </div>
+                <div class="metric-card">
+                    <i data-lucide="factory" class="metric-icon"></i>
+                    <h4 data-i18n="operations.met3">12,000 m²</h4>
+                    <span data-i18n="operations.met3_lbl">Facility Area</span>
+                </div>
+                <div class="metric-card">
+                    <i data-lucide="truck" class="metric-icon"></i>
+                    <h4 data-i18n="operations.met4">12 Reefers</h4>
+                    <span data-i18n="operations.met4_lbl">Monthly Export</span>
+                </div>
+                <div class="metric-card">
+                    <i data-lucide="thermometer-snowflake" class="metric-icon"></i>
+                    <h4 data-i18n="operations.met5">12°C - 14°C</h4>
+                    <span data-i18n="operations.met5_lbl">Cold Chain Control</span>
+                </div>
+                <div class="metric-card">
+                    <i data-lucide="package" class="metric-icon"></i>
+                    <h4 data-i18n="operations.met6">1,200 Pallets</h4>
+                    <span data-i18n="operations.met6_lbl">Holding Capacity</span>
                 </div>
             </div>
         </div>
@@ -224,23 +378,81 @@
             <div class="compliance-grid">
                 <div class="compliance-card reveal">
                     <div class="compliance-icon"><i data-lucide="leaf"></i></div>
-                    <h3>USDA Organic</h3>
-                    <p data-i18n="certifications.cert1_text">Certified 100% chemical-free and clean-label agricultural production, meeting NOP (National Organic Program) standards.</p>
+                    <h3 data-i18n="certifications.cert1_title">USDA Organic</h3>
+                    <p data-i18n="certifications.cert1_text">Certified 100% chemical-free and clean-label agricultural production.</p>
                 </div>
                 <div class="compliance-card reveal" style="transition-delay: 0.1s;">
                     <div class="compliance-icon"><i data-lucide="shield-check"></i></div>
                     <h3 data-i18n="certifications.cert2_title">FDA Registered</h3>
-                    <p data-i18n="certifications.cert2_text">Strict compliance with Foreign Supplier Verification Program (FSVP), proper lot tracing codes, and US weight/label guidelines.</p>
+                    <p data-i18n="certifications.cert2_text">Strict compliance with Foreign Supplier Verification Program (FSVP).</p>
                 </div>
                 <div class="compliance-card reveal" style="transition-delay: 0.2s;">
                     <div class="compliance-icon"><i data-lucide="file-check"></i></div>
-                    <h3>SENASA</h3>
-                    <p data-i18n="certifications.cert3_text">Official phytosanitary certificates from Peru's national authority ensuring pest-free, high-quality agricultural exports.</p>
+                    <h3 data-i18n="certifications.cert3_title">SENASA</h3>
+                    <p data-i18n="certifications.cert3_text">Official phytosanitary certificates from Peru's national authority.</p>
                 </div>
                 <div class="compliance-card reveal" style="transition-delay: 0.3s;">
-                    <div class="compliance-icon"><i data-lucide="file-text"></i></div>
-                    <h3>SUNAT</h3>
-                    <p data-i18n="certifications.cert4_text">Fully formalized international trade operations, assuring smooth customs clearance and legal transparency.</p>
+                    <div class="compliance-icon"><i data-lucide="globe"></i></div>
+                    <h3 data-i18n="certifications.cert4_title">GlobalG.A.P.</h3>
+                    <p data-i18n="certifications.cert4_text">Underlining our adherence to good agricultural practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency (Executive Team) -->
+    <section class="section team-section" id="team">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="tagline" data-i18n="team.tag">Transparency</span>
+                <h2 data-i18n="team.title">Executive Team</h2>
+                <p data-i18n="team.desc">A visionary group of International Business Administration graduates from UTP, dedicated to revolutionizing global trade and sustainable agriculture.</p>
+            </div>
+
+            <div class="team-grid reveal">
+                <!-- CEO -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/team_ceo.png" alt="CEO">
+                    </div>
+                    <div class="team-info">
+                        <h3 data-i18n="team.ceo_name">Jheremi David Jeanpier Chambi Huacachi</h3>
+                        <span class="team-role" data-i18n="team.ceo_role">CEO & Founder | 22 years old</span>
+                        <p data-i18n="team.ceo_text">A brilliant strategist who graduated at the top of his class at UTP.</p>
+                    </div>
+                </div>
+                <!-- CMO -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/team_cmo.png" alt="CMO">
+                    </div>
+                    <div class="team-info">
+                        <h3 data-i18n="team.cmo_name">Tessy Brigith Quispe Patilongo</h3>
+                        <span class="team-role" data-i18n="team.cmo_role">Chief Marketing Officer | 24 years old</span>
+                        <p data-i18n="team.cmo_text">Specialized in global consumer behavior at UTP.</p>
+                    </div>
+                </div>
+                <!-- CSO -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/team_cso.png" alt="CSO">
+                    </div>
+                    <div class="team-info">
+                        <h3 data-i18n="team.cso_name">Marco Antonio Lima Narciso</h3>
+                        <span class="team-role" data-i18n="team.cso_role">Chief Sales Officer | 25 years old</span>
+                        <p data-i18n="team.cso_text">An expert negotiator shaped by UTP's international trade programs.</p>
+                    </div>
+                </div>
+                <!-- CFO -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/team_cfo.png" alt="CFO">
+                    </div>
+                    <div class="team-info">
+                        <h3 data-i18n="team.cfo_name">Fabricio Eduardo Ortega Torres</h3>
+                        <span class="team-role" data-i18n="team.cfo_role">Chief Financial Officer | 22 years old</span>
+                        <p data-i18n="team.cfo_text">A mathematical mind who excelled in corporate finance at UTP.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -308,7 +520,7 @@
 
                         <div class="form-group">
                             <label data-i18n="contact.form_presentation">Requested Presentation</label>
-                            <div class="form-checkbox-group">
+                            <div class="form-checkbox-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="presentation" value="fresh" checked>
                                     <span data-i18n="contact.opt_fresh">Fresh Ginger Rhizomes</span>
@@ -316,6 +528,18 @@
                                 <label class="checkbox-label">
                                     <input type="checkbox" name="presentation" value="dehydrated">
                                     <span data-i18n="contact.opt_dried">Dried/Dehydrated Slices</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="presentation" value="infusion">
+                                    <span data-i18n="contact.opt_infusion">Ginger Infusions</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="presentation" value="supplement">
+                                    <span data-i18n="contact.opt_supplement">Ginger Supplements</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="presentation" value="snack">
+                                    <span data-i18n="contact.opt_snack">Crystallized Snack</span>
                                 </label>
                             </div>
                         </div>
@@ -337,8 +561,9 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <h2>Andean Roots</h2>
-                    <p data-i18n="footer.desc">Premium organic agricultural products exported from the Peruvian Andes to global markets.</p>
+                    <h2>Kion Andino</h2>
+                    <p data-i18n="footer.desc">Exporting premium organic Peruvian ginger to the world, maintaining the highest standards of quality and traceability.</p>
+                    <a href="#quote" class="btn btn-primary" data-i18n="hero.cta" style="margin-top: 1.5rem; display: inline-block;">Request a Quote</a>
                 </div>
                 
                 <div class="footer-links-col">

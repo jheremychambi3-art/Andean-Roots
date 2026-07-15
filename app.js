@@ -148,4 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1500);
         });
     }
+
+    // 6. Interactive Product Catalog
+    const catalogTabs = document.querySelectorAll('.catalog-tab');
+    const productDisplays = document.querySelectorAll('.product-display');
+
+    if (catalogTabs.length > 0) {
+        catalogTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                catalogTabs.forEach(t => t.classList.remove('active'));
+                productDisplays.forEach(d => d.classList.remove('active'));
+
+                tab.classList.add('active');
+                
+                const targetId = tab.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    }
 });
